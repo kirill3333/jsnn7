@@ -6,12 +6,13 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/solarized-light.min.css">
 </head>
 <body class="shower list">
 
 	<header class="caption">
-		<h1>Shower Presentation Engine</h1>
-		<p>Yours Truly, Famous Inc.</p>
+		<h1>Styled components</h1>
+		<p>Kirill Novikov, Solidopinion Inc.</p>
 	</header>
 
 	<section class="slide" id="cover">
@@ -58,26 +59,29 @@
 		<h2>Problems with css</h2>
 		<ol>
 			<li>Global namespaces</li>
-			<li class="next">Dependencies</li>
-			<li class="next">Dead code Elimination</li>
-			<li class="next">Minification</li>
-			<li class="next">Sharing Constants</li>
-			<li class="next">Non-deterministic Resolutions</li>
-			<li class="next">Isolation</li>
+			<li>Dependencies</li>
+			<li>Dead code Elimination</li>
+			<li>Minification</li>
+			<li>Sharing Constants</li>
+			<li>Non-deterministic Resolutions</li>
+			<li>Isolation</li>
 		</ol>
 		<p class="note">*2014 year Christopher Chedeau aka vjeux (React: CSS in JS)</p>
 	</section>
 
 	<section class="slide">
 		<h2>Inline styles <span style="font-size: 30px">👍</span></h2>
-
-		<pre>
-			<code>const <mark>style</mark> = {</code>
-			<code>  color: 'white',</code>
-			<code>  backgroundColor: 'black',</code>
-			<code>}</code>
-			<code></code>
-			<code>const Button = () => &lt;button style={<mark>style</mark>}&gt;Click me!&lt;/button&gt;</code>
+		<h5 style="font-size: 18px">Component.jsx</h5>
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="js">const <mark>style</mark> = {</code>
+			<code class="js">  color: 'white',</code>
+			<code class="js">  backgroundColor: 'black',</code>
+			<code class="js">}</code>
+			<code class="js">const Button = () => &lt;button style={<mark>style</mark>}&gt;Click me!&lt;/button&gt;</code>
+		</pre>
+		<h5 style="font-size: 18px">Result</h5>
+		<pre style="font-size: 16px">
+			<code class="js">&lt;button style="color: white; background-color: black;"&gt;Click me!&lt;/button&gt;</code>
 		</pre>
 	</section>
 
@@ -97,18 +101,18 @@
 		<h2>Radium</h2>
 
 		<pre style="font-size: 16px">
-			<code>const <mark>style</mark> = {</code>
-			<code>  color: 'white',</code>
-			<code>  backgroundColor: 'black',</code>
-			<code>  <mark class="important">':hover'</mark>: {</code>
-			<code>    backgroundColor: 'red'</code>
-			<code>  },</code>
-			<code>  <mark class="important">'@media (min-width: 992px)'</mark>: {</code>
-			<code>    padding: '0.6em 1.2em'</code>
-			<code>  }</code>
-			<code>}</code>
+			<code class="js">const <mark>style</mark> = {</code>
+			<code class="js">  color: 'white',</code>
+			<code class="js">  backgroundColor: 'black',</code>
+			<code class="js">  <mark class="important">':hover'</mark>: {</code>
+			<code class="js">    backgroundColor: 'red'</code>
+			<code class="js">  },</code>
+			<code class="js">  <mark class="important">'@media (min-width: 992px)'</mark>: {</code>
+			<code class="js">    padding: '0.6em 1.2em'</code>
+			<code class="js">  }</code>
+			<code class="js">}</code>
 
-			<code>const Button = () => &lt;button style={<mark>style</mark>}&gt;Click me!&lt;/button&gt;</code>
+			<code class="js">const Button = () => &lt;button style={<mark>style</mark>}&gt;Click me!&lt;/button&gt;</code>
 		</pre>
 	</section>
 
@@ -125,129 +129,203 @@
 	</section>
 
 	<section class="slide">
-		<h2>CSS Modules</h2>
-		<figure>
-			<blockquote>
-				<p style="font-size: 20px">CSS selectors all exist within the same global scope.
-					Anyone who has worked with CSS long enough has had to come to terms with its aggressively global nature — a model clearly designed in the age of documents, now struggling to offer a sane working environment for today’s modern web applications.
-					Every selector has the potential to have unintended side effects by targeting unwanted elements or clashing with other selectors. More surprisingly, our selectors may even lose out in the global specificity war, ultimately having little or no effect on the page at all.
-					Any time we make a change to a CSS file, we need to carefully consider the global environment in which our styles will sit. No other front end technology requires so much discipline just to keep the code at a minimum level of maintainability.
-					But it doesn’t have to be this way.
-					It’s time to leave the era of global style sheets behind.
-					It’s time for local CSS.</p>
-			</blockquote>
-			<figcaption>Mark Dalgleish</figcaption>
-		</figure>
+		<h2>Inline Inline Inline <span style="font-size: 30px">🔥🔥🔥</span></h2>
+		<ol>
+			<li><a href="http://formidable.com/open-source/radium/">Radium</a></li>
+			<li><a href="https://github.com/rofrischmann/react-look">react-look</a></li>
+			<li><a href="https://github.com/blakeembrey/react-free-style">react-free-style</a></li>
+			<li><a href="https://github.com/smyte/jsxstyle">jsxstyle</a> </li>
+			<li><a href="http://reactcss.com">reactCSS</a> </li>
+			<li>...</li>
+		</ol>
 	</section>
 
 	<section class="slide">
-		<h2>Code samples</h2>
-		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
+		<h2>CSS Modules</h2>
+		<h5 style="font-size: 18px">Style.css</h5>
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="css">.button {</code>
+			<code class="css">  background-color: #white;</code>
+			<code class="css">  border-radius: 5px;</code>
+			<code class="css">}</code>
+		</pre>
+		<h5 style="font-size: 18px">Component.jsx</h5>
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="js">import styles from './index.css'</code>
+			<code class="js">const Button = () => (&lt;button className={styles.button}&gt;Click me!&lt;/button&gt;)</code>
+		</pre>
+		<h5 style="font-size: 18px">Result</h5>
+		<pre style="font-size: 16px">
+			<code>&lt;button class="_2wpxM3yizfwbWee6k0UlD4"&gt;Click me!&lt;/button&gt;</code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
-	</section>
+		<h2>What next... 🤔</h2>
 
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
-		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
+		<img class="next cover" src="pictures/evolution.png" alt="Orange typewriter on a wooden table close-up">
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
+		<h2>Styled components 💅</h2>
+		<pre>
+			<code class="js">import styled from 'styled-components';</code>
+			<code class="js">const Button = styled.button`</code>
+			<code class="css">  border-radius: 3px;</code>
+			<code class="css">  color: white;</code>
+			<code class="css">  &:hover: {</code>
+			<code class="css">  	color: red;</code>
+			<code class="css">  }</code>
+			<code class="js">`</code>
+		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Inner navigation</h2>
+		<h2>Styled components inside 🔬</h2>
+		<h5 style="font-size: 20px">Tagged Template Literals</h5>
+
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="js">const a = 5</code>
+			<code class="js">const b = 10</code>
+			<code class="js">function tag(strings, ...values) {</code>
+			<code class="js">	console.log(strings[0]) // "Hello "</code>
+			<code class="js">	console.log(strings[1]) // " world "</code>
+			<code class="js">	console.log(values[0])  // 15</code>
+			<code class="js">	console.log(values[1])  // 50</code>
+			<code class="js">	return "Bazinga!"</code>
+			<code class="js">}</code>
+			<code class="js">tag`Hello ${ a + b } world ${ a * b}`</code>
+			<code class="js">// "Bazinga!"</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Styled component === React component</h2>
+
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="js">const Input = styled.input`</code>
+			<code class="css">	margin: 0.5em;</code>
+			<code class="css">	color: palevioletred;</code>
+			<code class="js">`</code>
+			<code class="js">render(</code>
+			<code class="html">	&lt;div&gt;</code>
+			<code class="html">		&lt;Input placeholder="@mxstbr" type="text" /&gt;</code>
+			<code class="html">		&lt;Input value="@geelen" type="text" /&gt;</code>
+			<code class="html">	&lt;/div&gt;</code>
+			<code class="js">)</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Style existing components</h2>
+
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="js">const Link = ({ className, children }) => (</code>
+			<code class="html">	&lt;a className={className}&gt;{children}&lt;/a&gt;</code>
+			<code class="js">)</code>
+			<code class="js">const StyledLink = styled(Link)`</code>
+			<code class="css">	color: palevioletred;</code>
+			<code class="css">	font-weight: bold;</code>
+			<code class="js">`</code>
+			<code class="js">render(</code>
+			<code class="html">	&lt;div&gt;</code>
+			<code class="html">		&lt;Link&gt;Unstyled, boring Link&lt;/Link&gt;</code>
+			<code class="html">		&lt;StyledLink&gt;Styled, exciting Link&lt;/StyledLink&gt;</code>
+			<code class="html">	&lt;/div&gt;</code>
+			<code class="js">)</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Use properties</h2>
+
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="js">const Button = styled.button`</code>
+			<code class="css">	background: ${props => props.primary ? 'palevioletred' : 'white'};</code>
+			<code class="css">	color: ${props => props.primary ? 'white' : 'palevioletred'};</code>
+			<code class="css">	font-size: 1em;</code>
+			<code class="js">'</code>
+			<code class="js">render(</code>
+			<code class="html">	&lt;div&gt;</code>
+			<code class="html">		&lt;Button&gt;Normal&lt;/Button&gt;</code>
+			<code class="html">		&lt;Button primary&gt;Primary&lt;/Button&gt;</code>
+			<code class="html">	&lt;/div&gt;</code>
+			<code class="js">)</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Extend styles</h2>
+
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="js">const Button = styled.button`</code>
+			<code class="css">	color: palevioletred;</code>
+			<code class="css">	font-size: 1em;</code>
+			<code class="js">'</code>
+			<code class="js">const TomatoButton = Button.extend`</code>
+			<code class="css">	color: tomato;</code>
+			<code class="js">'</code>
+			<code class="js">render(</code>
+			<code class="html">	&lt;div&gt;</code>
+			<code class="html">		&lt;Button&gt;Normal Button&lt;/Button&gt;</code>
+			<code class="html">		&lt;TomatoButton&gt;Tomato Button&lt;/TomatoButton&gt;</code>
+			<code class="html">	&lt;/div&gt;</code>
+			<code class="js">)</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Animations</h2>
+
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="js">import styled, { keyframes } from 'styled-components'</code>
+			<code class="js">const rotate360 = keyframes`</code>
+			<code class="css">	from { transform: rotate(0deg); }</code>
+			<code class="css">	to { transform: rotate(360deg); }</code>
+			<code class="js">'</code>
+			<code class="js">const Rotate = styled.div`</code>
+			<code class="css">	animation: ${rotate360} 2s linear infinite;</code>
+			<code class="js">'</code>
+			<code class="js">render(</code>
+			<code class="js">	&lt;Rotate&gt;⌛️&lt;/Rotate&gt;</code>
+			<code class="js">)</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Also support</h2>
+
 		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
+			<li>React Native</li>
+			<li>Theming</li>
+			<li>Server Side Rendering</li>
+			<li>Global variables</li>
+			<li>Additional props</li>
+			<li>TypeScript, Flow</li>
 		</ol>
 	</section>
 
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
-
 	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
+		<h2>Links</h2>
+
+		<ol>
+			<li><a href="https://vimeo.com/116209150">React: CSS in your JS by Christopher Chedeau</a></li>
+			<li><a href="https://github.com/MicheleBertoli/css-in-js">React: CSS in JS techniques comparison</a></li>
+			<li><a href="http://andrewhfarmer.com/how-to-style-react/">What to use for React styling?</a></li>
+			<li><a href="https://www.styled-components.com/docs">Styled components documentation</a> </li>
+			<li><a href="https://medium.com/seek-blog/the-end-of-global-css-90d2a4a06284">CSS Modules (The End of Global CSS)</a> </li>
+		</ol>
 	</section>
 
 	<footer class="badge">
-		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+		<a href="https://github.com/kirill3333/jsnn7">Fork me on GitHub</a>
 	</footer>
 
 	<div class="progress"></div>
 
 	<script src="shower/shower.min.js"></script>
-	<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 </html>
