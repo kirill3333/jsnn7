@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
 </head>
 <body class="shower list">
 
@@ -15,80 +15,128 @@
 	</header>
 
 	<section class="slide" id="cover">
-		<h2>Shower Presentation Engine</h2>
-		<p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-		<figure>
-			<img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
+		<h2>Styled Components</h2>
+		<h3>иной взгляд на стилизацию React-компонентов</h3>
+		<h2><💅></h2>
+
+		<p>Brought to you by <a href="https://github.com/kirill3333/">© Kirill Novikov</a></p>
 		<style>
+			#cover::after {
+				visibility: hidden;
+			}
+
+			#cover {
+				background: linear-gradient(20deg,rgb(219,112,147),#daa357);
+			}
+
+			#cover h3 {
+				text-align:center;
+				color: #FFF;
+			}
+
 			#cover h2 {
 				margin:30px 0 0;
-				color:#FFF;
 				text-align:center;
+				color: #FFF;
 				font-size:70px;
 				}
 			#cover p {
 				margin:10px 0 0;
 				text-align:center;
-				color:#FFF;
+				color: #fcffd6;
 				font-style:italic;
 				font-size:20px;
 				}
 				#cover p a {
-					color:#FFF;
-					}
+					color: #fcffd6;
+
+				}
 		</style>
 	</section>
 
 	<section class="slide">
-		<h2>Shower key features</h2>
+		<h2>Problems with css</h2>
 		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
+			<li>Global namespaces</li>
+			<li class="next">Dependencies</li>
+			<li class="next">Dead code Elimination</li>
+			<li class="next">Minification</li>
+			<li class="next">Sharing Constants</li>
+			<li class="next">Non-deterministic Resolutions</li>
+			<li class="next">Isolation</li>
 		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+		<p class="note">*2014 year Christopher Chedeau aka vjeux (React: CSS in JS)</p>
 	</section>
 
 	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+		<h2>Inline styles <span style="font-size: 30px">👍</span></h2>
+
+		<pre>
+			<code>const <mark>style</mark> = {</code>
+			<code>  color: 'white',</code>
+			<code>  backgroundColor: 'black',</code>
+			<code>}</code>
+			<code></code>
+			<code>const Button = () => &lt;button style={<mark>style</mark>}&gt;Click me!&lt;/button&gt;</code>
+		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-
-	<section class="slide">
-		<h2>All kind of lists</h2>
+		<h2>Inline styles <span style="font-size: 30px">💩</span></h2>
 		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
+			<li>Pseudo selectors</li>
+			<li>Media queries</li>
+			<li>Style fallbacks</li>
+			<li>Animations</li>
+			<li>!important to override CSS</li>
+			<li>Debugging</li>
 		</ol>
 	</section>
 
 	<section class="slide">
-		<h2>Serious citations</h2>
+		<h2>Radium</h2>
+
+		<pre style="font-size: 16px">
+			<code>const <mark>style</mark> = {</code>
+			<code>  color: 'white',</code>
+			<code>  backgroundColor: 'black',</code>
+			<code>  <mark class="important">':hover'</mark>: {</code>
+			<code>    backgroundColor: 'red'</code>
+			<code>  },</code>
+			<code>  <mark class="important">'@media (min-width: 992px)'</mark>: {</code>
+			<code>    padding: '0.6em 1.2em'</code>
+			<code>  }</code>
+			<code>}</code>
+
+			<code>const Button = () => &lt;button style={<mark>style</mark>}&gt;Click me!&lt;/button&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Radium</h2>
+		<ol>
+			<li>👍 Pseudo selectors</li>
+			<li>👍 Media queries</li>
+			<li>👍 Style fallbacks</li>
+			<li>👍 Animations</li>
+			<li>👎🏿 !important to override CSS</li>
+			<li>👎🏿 Debugging</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>CSS Modules</h2>
 		<figure>
 			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+				<p style="font-size: 20px">CSS selectors all exist within the same global scope.
+					Anyone who has worked with CSS long enough has had to come to terms with its aggressively global nature — a model clearly designed in the age of documents, now struggling to offer a sane working environment for today’s modern web applications.
+					Every selector has the potential to have unintended side effects by targeting unwanted elements or clashing with other selectors. More surprisingly, our selectors may even lose out in the global specificity war, ultimately having little or no effect on the page at all.
+					Any time we make a change to a CSS file, we need to carefully consider the global environment in which our styles will sit. No other front end technology requires so much discipline just to keep the code at a minimum level of maintainability.
+					But it doesn’t have to be this way.
+					It’s time to leave the era of global style sheets behind.
+					It’s time for local CSS.</p>
 			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
+			<figcaption>Mark Dalgleish</figcaption>
 		</figure>
 	</section>
 
@@ -198,7 +246,7 @@
 
 	<div class="progress"></div>
 
-	<script src="node_modules/shower-core/shower.min.js"></script>
+	<script src="shower/shower.min.js"></script>
 	<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
 
 </body>
