@@ -61,8 +61,8 @@
 			<li>Global namespaces</li>
 			<li>Dependencies</li>
 			<li>Dead code Elimination</li>
-			<li>Minification</li>
-			<li>Sharing Constants</li>
+			<li>Minification <span style="color: #9e9e9e">(classnames)</span></li>
+			<li>Sharing Constants <span style="color: #9e9e9e">(between css & js)</span></li>
 			<li>Non-deterministic Resolutions</li>
 			<li>Isolation</li>
 		</ol>
@@ -90,9 +90,9 @@
 		<ol>
 			<li>Pseudo selectors</li>
 			<li>Media queries</li>
-			<li>Style fallbacks</li>
+			<li>Vendor prefixes</li>
 			<li>Animations</li>
-			<li>!important to override CSS</li>
+			<li>!important to override with CSS</li>
 			<li>Debugging</li>
 		</ol>
 	</section>
@@ -104,10 +104,10 @@
 			<code class="js">const <mark>style</mark> = {</code>
 			<code class="js">  color: 'white',</code>
 			<code class="js">  backgroundColor: 'black',</code>
-			<code class="js">  <mark class="important">':hover'</mark>: {</code>
+			<code class="js">  <mark>':hover'</mark>: {</code>
 			<code class="js">    backgroundColor: 'red'</code>
 			<code class="js">  },</code>
-			<code class="js">  <mark class="important">'@media (min-width: 992px)'</mark>: {</code>
+			<code class="js">  <mark>'@media (min-width: 992px)'</mark>: {</code>
 			<code class="js">    padding: '0.6em 1.2em'</code>
 			<code class="js">  }</code>
 			<code class="js">}</code>
@@ -121,9 +121,9 @@
 		<ol>
 			<li>👍 Pseudo selectors</li>
 			<li>👍 Media queries</li>
-			<li>👍 Style fallbacks</li>
+			<li>👍 Vendor prefixes</li>
 			<li>👍 Animations</li>
-			<li>👎🏿 !important to override CSS</li>
+			<li>👎🏿 !important to override with CSS</li>
 			<li>👎🏿 Debugging</li>
 		</ol>
 	</section>
@@ -168,7 +168,7 @@
 
 	<section class="slide">
 		<h2>Styled components 💅</h2>
-		<pre>
+		<pre style="font-size: 16px; padding-left: 30px">
 			<code class="js">import styled from 'styled-components';</code>
 			<code class="js">const Button = styled.button`</code>
 			<code class="css">  border-radius: 3px;</code>
@@ -177,6 +177,13 @@
 			<code class="css">  	color: red;</code>
 			<code class="css">  }</code>
 			<code class="js">`</code>
+			<code class="html">render(&lt;Button value="Click me!" /&gt;)</code>
+
+		</pre>
+		<h5 style="font-size: 18px">Result</h5>
+		<pre style="font-size: 16px; padding-left: 30px">
+			<code class="css">&lt;style&gt;._2wpxM3yizfwbWee6k0UlD4 { border-radius: 3px; color: white; }&lt;/style&gt;</code>
+			<code>&lt;button class="_2wpxM3yizfwbWee6k0UlD4"&gt;Click me!&lt;/button&gt;</code>
 		</pre>
 	</section>
 
@@ -209,8 +216,8 @@
 			<code class="js">`</code>
 			<code class="js">render(</code>
 			<code class="html">	&lt;div&gt;</code>
-			<code class="html">		&lt;Input placeholder="@mxstbr" type="text" /&gt;</code>
-			<code class="html">		&lt;Input value="@geelen" type="text" /&gt;</code>
+			<code class="html">		&lt;Input placeholder="Login" type="text" onClick={ onClick } /&gt;</code>
+			<code class="html">		&lt;Input value="@kirill3333" type="text" onClick={ onClick } /&gt;</code>
 			<code class="html">	&lt;/div&gt;</code>
 			<code class="js">)</code>
 		</pre>
